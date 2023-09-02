@@ -134,17 +134,8 @@ template<typename T> void SinglyList<T> :: delete_front(){
 
 template<typename T> void SinglyList<T> :: delete_end(){
     Node<T> *temp = head;
-    if(temp == NULL)
-    	return;
-    	
-    if(temp->link == NULL){
-    	this->delete_front();
-    }
-    	
-    else{
-    	while(temp->link->link != NULL){
-        	temp = temp -> link;
-    	}
+    while(temp->link->link != NULL){
+        temp = temp -> link;
     }
     Node<T> *lastNode = temp->link;
     temp->link = NULL;

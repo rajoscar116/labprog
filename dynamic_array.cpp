@@ -18,7 +18,6 @@ class DynamicArray{
         void push_back(T ele);
         void display_all();
         void insert_at_loc(int loc,T ele);
-        void pop_back();
         void delete_at_loc(int loc);
         bool find(T key);
         void free_memory();
@@ -68,13 +67,9 @@ template<typename T> void DynamicArray<T> :: insert_at_loc(int loc,T ele){
         this->size++;
         delete[] copyArray;
     }
-    
-template<typename T> void DynamicArray<T> :: pop_back(){
-	this->delete_at_loc(this->size - 1);
-}
 
 template<typename T> void DynamicArray<T> :: delete_at_loc(int loc){
-        if(loc >= size)
+        if(loc > size - 1)
             return;
         if(size == 0)
             return;
